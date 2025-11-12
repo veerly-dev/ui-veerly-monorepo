@@ -3,15 +3,20 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx run @ui-veerly-monorepo/web:start",
-    "dev": "nx run @ui-veerly-monorepo/web:dev",
-    "build": "nx run @ui-veerly-monorepo/web:build",
     "lint": "nx run @ui-veerly-monorepo/web:lint",
     "test": "nx run @ui-veerly-monorepo/web:test",
     "e2e": "nx run @ui-veerly-monorepo/web-e2e:e2e",
     "show": "npx nx show project web",
-    "docker:build": "docker build -t ui-veerly-web .",
-    "docker:run": "docker run -p 3000:3000 ui-veerly-web"
+    "web:start": "nx run @ui-veerly-monorepo/web:start",
+    "web:dev": "nx run @ui-veerly-monorepo/web:dev",
+    "web:build": "nx run @ui-veerly-monorepo/web:build",
+    "web-docker:build": "docker build -f Dockerfile.web -t ui-veerly-web .",
+    "web-docker:run": "docker run -p 3000:3000 ui-veerly-web",
+    "admin:start": "nx run @ui-veerly-monorepo/admin:start",
+    "admin:dev": "nx run @ui-veerly-monorepo/admin:dev",
+    "admin:build": "nx run @ui-veerly-monorepo/admin:build",
+    "admin-docker:build": "docker build -f Dockerfile.admin -t ui-veerly-admin .",
+    "admin-docker:run": "docker run -p 3001:3000 ui-veerly-admin"
   },
   "private": true,
   "dependencies": {

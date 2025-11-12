@@ -1,0 +1,39 @@
+# ---- Base Builder Image ----
+FROM node:20-alpine AS builder
+
+# Enable pnpm
+RUN corepack enable
+WORKDIR /app
+
+# Copy workspace metadata
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json nx.json tsconfig.base.json eslint.config.mjs ./
+COPY jest.config.ts jest.preset.js ./
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy app source
+COPY apps/web ./apps/web
+# COPY libs ./libs  # Uncomment if you add shared libs later
+
+# Build using the Nx target defined in package.json scripts
+RUN pnpm run web:build
+
+# ---- Runtime Image ----
+FROM node:20-alpine
+
+RUN corepack enable
+WORKDIR /app
+
+# Copy only what’s needed for runtime
+COPY --from=builder /app/apps/web/.next ./.next
+COPY --from=builder /app/apps/web/public ./public
+COPY --from=builder /app/apps/web/package.json ./package.json
+COPY --from=builder /app/node_modules ./node_modules
+
+ENV NODE_ENV=production
+ENV PORT=3000
+EXPOSE 3000
+
+# Start via Nx target
+CMD ["pnpm", "--filter", "@ui-veerly-monorepo/web", "start"]
