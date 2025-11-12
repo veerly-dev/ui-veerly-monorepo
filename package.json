@@ -9,7 +9,9 @@
     "lint": "nx run @ui-veerly-monorepo/web:lint",
     "test": "nx run @ui-veerly-monorepo/web:test",
     "e2e": "nx run @ui-veerly-monorepo/web-e2e:e2e",
-    "show": "npx nx show project web"
+    "show": "npx nx show project web",
+    "docker:build": "docker build -t ui-veerly-web .",
+    "docker:run": "docker run -p 3000:3000 ui-veerly-web"
   },
   "private": true,
   "dependencies": {
