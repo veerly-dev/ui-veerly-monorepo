@@ -2,10 +2,19 @@
   "name": "@ui-veerly-monorepo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx run @ui-veerly-monorepo/web:start",
+    "dev": "nx run @ui-veerly-monorepo/web:dev",
+    "build": "nx run @ui-veerly-monorepo/web:build",
+    "lint": "nx run @ui-veerly-monorepo/web:lint",
+    "test": "nx run @ui-veerly-monorepo/web:test",
+    "e2e": "nx run @ui-veerly-monorepo/web-e2e:e2e",
+    "show": "npx nx show project web"
+  },
   "private": true,
   "dependencies": {
     "next": "~15.2.4",
+    "next-pwa": "^5.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
