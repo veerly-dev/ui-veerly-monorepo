@@ -20,10 +20,10 @@
     "target": "es2022",
     "customConditions": ["@ui-veerly-monorepo/source"],
     "paths": {
-      "@veerly/shared/auth": ["libs/shared/auth/src/index.ts"],
-      "@veerly/shared/auth/*": ["libs/shared/auth/src/*"],
       "@veerly/shared/graphql": ["libs/shared/graphql/src/index.ts"],
-      "@veerly/shared/graphql/*": ["libs/shared/graphql/src/*"]
+      "@veerly/shared/graphql/*": ["libs/shared/graphql/src/*"],
+      "@veerly/shared/service-hooks": ["libs/shared/service-hooks/src/index.ts"],
+      "@veerly/shared/service-hooks/*": ["libs/shared/service-hooks/src/*"],
     }
   }
 }

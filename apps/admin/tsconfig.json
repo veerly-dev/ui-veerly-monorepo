@@ -25,6 +25,9 @@
   "references": [
     {
       "path": "../../libs/shared/graphql"
+    },
+    {
+      "path": "../../libs/shared/service-hooks"
     }
   ]
 }

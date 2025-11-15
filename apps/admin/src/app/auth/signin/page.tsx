@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useSignIn } from '@veerly/shared/auth';
+import { useSignIn } from '@veerly/shared/service-hooks';
 
 const SignInSchema = z.object({
   email: z.string().email(),

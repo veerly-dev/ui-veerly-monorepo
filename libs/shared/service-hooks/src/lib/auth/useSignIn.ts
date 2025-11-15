@@ -37,8 +37,8 @@ export function useSignIn() {
       return null;
     }
 
-    setState({ fetching: false, error: null, data: result.data });
-    return result.data;
+    setState({ fetching: false, error: null, data: result.data ?? null });
+    return result.data ?? null;
   };
 
   return { ...state, signIn };
