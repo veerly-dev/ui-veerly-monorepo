@@ -16,7 +16,8 @@
     "admin:dev": "nx run @ui-veerly-monorepo/admin:dev",
     "admin:build": "nx run @ui-veerly-monorepo/admin:build",
     "admin-docker:build": "docker build -f Dockerfile.admin -t ui-veerly-admin .",
-    "admin-docker:run": "docker run -p 3001:3000 ui-veerly-admin"
+    "admin-docker:run": "docker run -p 3001:3000 ui-veerly-admin",
+    "library": "nx g @nrwl/react:lib auth --directory=shared --style=none --importPath=@veerly/shared/auth"
   },
   "private": true,
   "dependencies": {
@@ -32,10 +33,13 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^2.1.1",
     "@eslint/js": "^9.8.0",
     "@next/eslint-plugin-next": "^15.2.4",
+    "@nrwl/react": "^19.8.4",
     "@nx/devkit": "22.0.2",
     "@nx/eslint": "22.0.2",
     "@nx/eslint-plugin": "22.0.2",
@@ -43,6 +47,9 @@
     "@nx/js": "22.0.2",
     "@nx/next": "22.0.2",
     "@nx/playwright": "22.0.2",
+    "@nx/react": "19.8.4",
+    "@nx/vite": "22.0.2",
+    "@nx/web": "22.0.2",
     "@nx/workspace": "22.0.2",
     "@playwright/test": "^1.36.0",
     "@swc-node/register": "~1.9.1",
@@ -55,6 +62,9 @@
     "@types/node": "20.19.9",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "@vitest/coverage-v8": "^3.0.5",
+    "@vitest/ui": "^3.0.0",
     "autoprefixer": "10.4.13",
     "babel-jest": "^30.0.2",
     "eslint": "^9.8.0",
@@ -68,6 +78,8 @@
     "jest": "^30.0.2",
     "jest-environment-jsdom": "^30.0.2",
     "jest-util": "^30.0.2",
+    "jiti": "2.4.2",
+    "jsdom": "~22.1.0",
     "nx": "22.0.2",
     "postcss": "8.4.38",
     "prettier": "^2.6.2",
@@ -76,7 +88,10 @@
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
-    "typescript-eslint": "^8.40.0"
+    "typescript-eslint": "^8.40.0",
+    "vite": "^7.0.0",
+    "vite-plugin-dts": "~4.5.0",
+    "vitest": "^3.0.0"
   },
   "workspaces": [
     "apps/*"

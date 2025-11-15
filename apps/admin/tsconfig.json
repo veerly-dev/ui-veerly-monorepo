@@ -10,27 +10,21 @@
     "strict": true,
     "moduleResolution": "bundler",
     "forceConsistentCasingInFileNames": true,
+    "plugins": [{ "name": "next" }],
 
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-
-    "plugins": [
-      { "name": "next" }
-    ]
+    "outDir": "../../../dist/out-tsc",
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "rootDir": "src"
   },
 
-  "include": [
-    "next-env.d.ts",
-    "src/**/*",
-    ".next/types/**/*.ts"
-  ],
+  "include": ["next-env.d.ts", "src/**/*", ".next/types/**/*.ts"],
 
-  "exclude": [
-    "node_modules",
-    "dist",
-    "out-tsc",
-    ".next"
+  "exclude": ["node_modules", "dist", "out-tsc", ".next"],
+  "references": [
+    {
+      "path": "../../libs/shared/graphql"
+    }
   ]
 }

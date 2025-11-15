@@ -2,9 +2,23 @@
   "extends": "./tsconfig.base.json",
   "files": [],
   "references": [
-    { "path": "./apps/web" },
-    { "path": "./apps/web-e2e" },
-    { "path": "./apps/admin" },
-    { "path": "./apps/admin-e2e" }
+    {
+      "path": "./apps/web"
+    },
+    {
+      "path": "./apps/web-e2e"
+    },
+    {
+      "path": "./apps/admin"
+    },
+    {
+      "path": "./apps/admin-e2e"
+    },
+    {
+      "path": "./libs/shared/graphql"
+    },
+    {
+      "path": "./libs/shared/auth"
+    }
   ]
 }

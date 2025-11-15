@@ -1,6 +1,6 @@
 // app/layout.tsx (Server Component)
 import './global.css';
-import { Providers } from '@/lib/graphql/Providers';
+import { GraphQLProvider } from '@veerly/shared/graphql';
 
 export const metadata = {
   title: 'Admin',
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <GraphQLProvider>{children}</GraphQLProvider>
       </body>
     </html>
   );

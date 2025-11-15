@@ -1,10 +1,9 @@
 'use client';
 
-import { useMutation } from 'urql';
-import { SIGN_IN_MUTATION } from '@/lib/graphql/mutations';
-import { z } from 'zod';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useSignIn } from '@veerly/shared/auth';
 
 const SignInSchema = z.object({
   email: z.string().email(),
@@ -14,8 +13,6 @@ const SignInSchema = z.object({
 type FormValues = z.infer<typeof SignInSchema>;
 
 export default function SignInPage() {
-  const [{ fetching }, executeSignIn] = useMutation(SIGN_IN_MUTATION);
-
   const {
     register,
     handleSubmit,
@@ -24,18 +21,13 @@ export default function SignInPage() {
     resolver: zodResolver(SignInSchema),
   });
 
+  const { signIn, fetching, error } = useSignIn();
+
   const onSubmit = async (data: FormValues) => {
-    console.log('Sending GraphQL Mutation:', {
-      query: SIGN_IN_MUTATION.loc?.source.body, // actual textual GQL
-      variables: data,
-    });
-
-    const result = await executeSignIn(data);
-
-    console.log('GraphQL Response:', result);
-
-    if (result.error) {
-      return;
+    const result = await signIn(data);
+    if (result?.signIn.token) {
+      // redirect to module selection page
+      console.log('Login success:', result);
     }
   };
 
@@ -47,37 +39,31 @@ export default function SignInPage() {
       >
         <h1 className="text-2xl font-semibold mb-4">Sign In</h1>
 
-        <div className="mb-4">
-          <label className="block mb-1 text-sm font-medium">Email</label>
-          <input
-            {...register('email')}
-            type="email"
-            className="w-full border px-3 py-2 rounded-md"
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-          )}
-        </div>
+        <input
+          {...register('email')}
+          placeholder="Email"
+          className="w-full border p-2 rounded mb-2"
+        />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
-        <div className="mb-4">
-          <label className="block mb-1 text-sm font-medium">Password</label>
-          <input
-            {...register('password')}
-            type="password"
-            className="w-full border px-3 py-2 rounded-md"
-          />
-          {errors.password && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.password.message}
-            </p>
-          )}
-        </div>
+        <input
+          {...register('password')}
+          type="password"
+          placeholder="Password"
+          className="w-full border p-2 rounded mb-2"
+        />
+        {errors.password && (
+          <p className="text-red-500">{errors.password.message}</p>
+        )}
+
+        {error && <p className="text-red-600">{error}</p>}
 
         <button
+          type="submit"
           disabled={fetching}
-          className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
+          className="w-full bg-black text-white p-2 rounded mt-2"
         >
-          {fetching ? 'Signing in…' : 'Sign In'}
+          {fetching ? 'Signing in...' : 'Sign In'}
         </button>
       </form>
     </div>
