@@ -1,19 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
   "files": [],
   "references": [
-    {
-      "path": "./apps/web-e2e"
-    },
-    {
-      "path": "./apps/web"
-    },
-    {
-      "path": "./apps/admin-e2e"
-    },
-    {
-      "path": "./apps/admin"
-    }
+    { "path": "./apps/web" },
+    { "path": "./apps/web-e2e" },
+    { "path": "./apps/admin" },
+    { "path": "./apps/admin-e2e" }
   ]
 }
