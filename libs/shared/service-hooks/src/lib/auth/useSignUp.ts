@@ -2,21 +2,21 @@
 
 import { useMutation } from 'urql';
 import { useState } from 'react';
-import { SignInInput, SignInResponse } from './types';
-import { SIGN_IN_MUTATION } from './graphql';
+import { SignUpInput, SignUpResponse } from './types';
+import { SIGN_UP_MUTATION } from './graphql';
 
 export function useSignIn() {
   const [state, setState] = useState({
     fetching: false,
     error: null as string | null,
-    data: null as SignInResponse | null,
+    data: null as SignUpResponse | null,
   });
 
-  const [, executeMutation] = useMutation<SignInResponse, SignInInput>(
-    SIGN_IN_MUTATION
+  const [, executeMutation] = useMutation<SignUpResponse, SignUpInput>(
+    SIGN_UP_MUTATION
   );
 
-  const signIn = async (input: SignInInput) => {
+  const signIn = async (input: SignUpInput) => {
     setState({ fetching: true, error: null, data: null });
 
     const result = await executeMutation(input);
