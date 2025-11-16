@@ -26,7 +26,7 @@
         "libs/shared/service-hooks/src/index.ts"
       ],
       "@veerly/shared/service-hooks/*": ["libs/shared/service-hooks/src/*"],
-      "@veerly/ui/fields": ["libs/ui/fields/src/index.ts"]
+      "@veerly/ui/kit": ["libs/ui/kit/src/index.ts"]
     }
   }
 }

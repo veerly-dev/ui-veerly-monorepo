@@ -19,6 +19,9 @@
     },
     {
       "path": "./libs/shared/service-hooks"
+    },
+    {
+      "path": "./libs/ui/kit"
     }
   ]
 }

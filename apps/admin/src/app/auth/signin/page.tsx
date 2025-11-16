@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSignIn } from '@veerly/shared/service-hooks';
-import { Textfield } from '@veerly/ui/fields';
+import { Textfield } from '@veerly/ui/kit';
 
 const SignInSchema = z.object({
   email: z.string().email(),

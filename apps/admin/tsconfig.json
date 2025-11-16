@@ -29,7 +29,7 @@
       "path": "../../libs/shared/service-hooks"
     },
     {
-      "path": "../../libs/ui/fields"
+      "path": "../../libs/ui/kit"
     }
   ]
 }

@@ -11,9 +11,6 @@
   "include": [],
   "references": [
     {
-      "path": "../graphql"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {

@@ -17,7 +17,7 @@
     "admin:build": "nx run @ui-veerly-monorepo/admin:build",
     "admin-docker:build": "docker build -f Dockerfile.admin -t ui-veerly-admin .",
     "admin-docker:run": "docker run -p 3001:3000 ui-veerly-admin",
-    "library": "nx g @nrwl/react:lib auth --directory=ui --style=none --importPath=@veerly/ui/fields"
+    "library": "nx g @nrwl/react:lib auth --directory=ui --style=none --importPath=@veerly/ui/kit"
   },
   "private": true,
   "dependencies": {
