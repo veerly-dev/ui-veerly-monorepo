@@ -22,8 +22,11 @@
     "paths": {
       "@veerly/shared/graphql": ["libs/shared/graphql/src/index.ts"],
       "@veerly/shared/graphql/*": ["libs/shared/graphql/src/*"],
-      "@veerly/shared/service-hooks": ["libs/shared/service-hooks/src/index.ts"],
+      "@veerly/shared/service-hooks": [
+        "libs/shared/service-hooks/src/index.ts"
+      ],
       "@veerly/shared/service-hooks/*": ["libs/shared/service-hooks/src/*"],
+      "@veerly/ui/fields": ["libs/ui/fields/src/index.ts"]
     }
   }
 }

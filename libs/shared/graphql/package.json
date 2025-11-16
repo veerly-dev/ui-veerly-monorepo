@@ -1,18 +1,10 @@
 {
   "name": "@veerly/shared/graphql",
-  "version": "0.0.1",
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./index.mjs",
-      "require": "./index.js",
-      "@ui-veerly-monorepo/source": "./src/index.ts",
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "module": "./dist/index.js",
-  "type": "module"
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js"
+  }
 }

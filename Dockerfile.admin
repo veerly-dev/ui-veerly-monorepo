@@ -14,7 +14,11 @@ RUN pnpm install --frozen-lockfile
 
 # Copy app source
 COPY apps/admin ./apps/admin
-# COPY libs ./libs  # Uncomment if you add shared libs later
+COPY libs ./libs
+
+RUN pnpm nx run shared-service-hooks:build
+RUN pnpm nx run shared-graphql:build
+RUN pnpm nx run ui-fields:build
 
 # Build using the Nx target defined in package.json scripts
 RUN pnpm run admin:build
