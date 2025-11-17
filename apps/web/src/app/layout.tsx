@@ -1,15 +1,10 @@
-import type { Metadata } from 'next';
+// app/layout.tsx (Server Component)
 import './global.css';
+import { GraphQLProvider } from '@veerly/shared/graphql';
 
-export const metadata: Metadata = {
-  title: 'Veerly',
-  description: 'Progressive Web App built with Next.js & Nx',
-  manifest: '/manifest.json',
-  themeColor: '#0f172a',
-  icons: {
-    icon: '/icons/icon-192x192.png',
-    apple: '/icons/icon-512x512.png',
-  },
+export const metadata = {
+  title: 'Admin',
+  description: 'Admin panel',
 };
 
 export default function RootLayout({
@@ -19,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <GraphQLProvider>{children}</GraphQLProvider>
+      </body>
     </html>
   );
 }
