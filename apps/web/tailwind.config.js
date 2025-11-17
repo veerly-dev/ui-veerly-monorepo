@@ -14,10 +14,19 @@ module.exports = {
   content: [
     './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
     '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
-    //     ...createGlobPatternsForDependencies(__dirname)
+    // Include all UI components in the shared library
+    '../../libs/**/*.{ts,tsx,js,jsx,html}',
+    '!../../libs/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        cursive: ['"Great Vibes"', 'cursive'],
+        signature: ['"Satisfy"', 'cursive'],
+        body: ['"Inter Variable"', 'sans-serif'],
+        title: ['"Playfair Display Variable"', 'serif'],
+      },
+    },
   },
   plugins: [],
 };

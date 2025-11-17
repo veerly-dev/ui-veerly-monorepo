@@ -17,12 +17,19 @@
     "admin:build": "nx run @ui-veerly-monorepo/admin:build",
     "admin-docker:build": "docker build -f Dockerfile.admin -t ui-veerly-admin .",
     "admin-docker:run": "docker run -p 3001:3000 ui-veerly-admin",
-    "library": "nx g @nrwl/react:lib auth --directory=ui --style=none --importPath=@veerly/ui/fields"
+    "library": "nx g @nrwl/react:lib auth --directory=ui --style=none --importPath=@veerly/ui/kit"
   },
   "private": true,
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/playfair-display": "^5.2.8",
+    "@fontsource/dancing-script": "^5.2.8",
+    "@fontsource/great-vibes": "^5.2.8",
+    "@fontsource/satisfy": "^5.2.7",
     "@hookform/resolvers": "^5.2.2",
+    "@tailwindcss/postcss": "^4.1.17",
     "@urql/core": "^5.2.0",
+    "clsx": "^2.1.1",
     "next": "~15.2.4",
     "next-pwa": "^5.6.0",
     "react": "^19.0.0",
@@ -67,6 +74,7 @@
     "@vitest/ui": "^3.0.0",
     "autoprefixer": "10.4.13",
     "babel-jest": "^30.0.2",
+    "daisyui": "^4.12.24",
     "eslint": "^9.8.0",
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.0.0",

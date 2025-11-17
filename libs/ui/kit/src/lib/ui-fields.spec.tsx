@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import UiFields from './ui-fields';
+import UiFields from './ui-kit';
 
 describe('UiFields', () => {
   it('should render successfully', () => {

@@ -6,7 +6,7 @@ import * as path from 'path';
 
 export default defineConfig(() => ({
   root: __dirname,
-  cacheDir: '../../../node_modules/.vite/libs/ui/fields',
+  cacheDir: '../../../node_modules/.vite/libs/ui/kit',
   plugins: [
     react(),
     dts({
@@ -30,7 +30,7 @@ export default defineConfig(() => ({
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/index.ts',
-      name: 'ui-fields',
+      name: 'ui-kit',
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
@@ -42,7 +42,7 @@ export default defineConfig(() => ({
     },
   },
   test: {
-    name: 'ui-fields',
+    name: 'ui-kit',
     watch: false,
     globals: true,
     environment: 'jsdom',
