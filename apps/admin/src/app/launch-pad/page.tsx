@@ -27,7 +27,7 @@ export default function LaunchPad() {
           <li>
             <hr className="bg-info" />
             <div className="timeline-start timeline-box bg-warning text-white">
-              <Link href="/">Blogger</Link>
+              <Link href="/blogger">Blogger</Link>
             </div>
             <hr className="bg-info" />
           </li>

@@ -12,7 +12,7 @@ import {
   SecondaryButton,
 } from '@veerly/ui/kit';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const SignInSchema = z.object({
@@ -31,19 +31,18 @@ export default function SignInPage() {
     resolver: zodResolver(SignInSchema),
     reValidateMode: 'onBlur',
   });
-  const { signIn } = useSignIn();
+  const { signIn, verifyToken } = useSignIn();
 
   const onSubmit = async (data: FormValues) => {
     try {
       setLoading(true);
       const result = await signIn(data);
-      if (result?.signIn.token) {
-        console.log('Login success:', result);
+      if (result?.accessToken) {
         router.push('launch-pad');
-      } else if (result?.signIn.message) {
+      } else if (result?.message) {
         methods.setValue('email', '');
         methods.setValue('password', '');
-        setToast(result?.signIn.message);
+        setToast(result?.message);
         await methods.trigger();
       }
     } catch {
@@ -52,6 +51,23 @@ export default function SignInPage() {
       setLoading(false);
     }
   };
+
+  const verifyTokenStatus = async () => {
+    try {
+      setLoading(true);
+      const tokenStatus = await verifyToken();
+      if (tokenStatus?.valid) {
+        router.push('launch-pad');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    console.log('-- Verify the token on SignInPage --');
+    verifyTokenStatus();
+  }, []);
 
   return (
     <>

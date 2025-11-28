@@ -3,10 +3,32 @@ export interface SignInInput {
   password: string;
 }
 
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
 export interface SignInResponse {
   signIn: {
-    token: string;
     message: string;
+    accessToken: string;
+    refreshToken: string;
+    user?: User;
+  };
+}
+
+export interface RefreshTokenResponse {
+  refreshToken: {
+    accessToken: string;
+    refreshToken: string;
+  };
+}
+export interface VerifyTokenResponse {
+  verifyToken: {
+    valid: boolean;
+    message: string;
+    user: User;
   };
 }
 
