@@ -1,13 +1,16 @@
-import { Client, cacheExchange, fetchExchange } from 'urql';
+import { createClient, cacheExchange, fetchExchange } from 'urql';
 
-export const graphQLClient = new Client({
-  url: 'https://api-veerly-dev.up.railway.app/serve/graphql',
-  fetchOptions: () => ({
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-  }),
-  exchanges: [cacheExchange, fetchExchange],
-});
+export function makeUrqlClient(token: string | null | undefined) {
+  return createClient({
+    url: 'https://api-veerly-dev.up.railway.app/serve/graphql',
+    fetchOptions: () => ({
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: token ? `Bearer ${token}` : '',
+      },
+    }),
+    exchanges: [cacheExchange, fetchExchange],
+  });
+}

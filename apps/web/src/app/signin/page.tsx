@@ -37,13 +37,14 @@ export default function SignInPage() {
     try {
       setLoading(true);
       const result = await signIn(data);
-      if (result?.signIn.token) {
-        console.log('Login success:', result);
+      console.log('-- Login:', result);
+      if (result?.accessToken) {
+        setToast(result?.message);
         router.push('launch-pad');
-      } else if (result?.signIn.message) {
+      } else if (result?.message) {
         methods.setValue('email', '');
         methods.setValue('password', '');
-        setToast(result?.signIn.message);
+        setToast(result?.message);
         await methods.trigger();
       }
     } catch {
