@@ -3,8 +3,8 @@ import './global.css';
 import { GraphQLProvider } from '@veerly/shared/graphql';
 
 export const metadata = {
-  title: 'Admin',
-  description: 'Admin panel',
+  title: 'veerly.dev',
+  description: 'My PFM Portal',
 };
 
 export default function RootLayout({

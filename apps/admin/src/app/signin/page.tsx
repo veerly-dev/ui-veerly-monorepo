@@ -38,7 +38,7 @@ export default function SignInPage() {
       setLoading(true);
       const result = await signIn(data);
       if (result?.accessToken) {
-        router.push('launch-pad');
+        router.push('pfm/calendar');
       } else if (result?.message) {
         methods.setValue('email', '');
         methods.setValue('password', '');
@@ -57,7 +57,7 @@ export default function SignInPage() {
       setLoading(true);
       const tokenStatus = await verifyToken();
       if (tokenStatus?.valid) {
-        router.push('launch-pad');
+        router.push('pfm/calendar');
       }
     } finally {
       setLoading(false);

@@ -40,7 +40,7 @@ export default function SignInPage() {
       console.log('-- Login:', result);
       if (result?.accessToken) {
         setToast(result?.message);
-        router.push('launch-pad');
+        router.push('pfm/calendar');
       } else if (result?.message) {
         methods.setValue('email', '');
         methods.setValue('password', '');
