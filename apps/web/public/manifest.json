@@ -1,11 +1,14 @@
 {
+  "id": "/",
+  "scope": "/",
   "name": "Veerly Web App",
   "short_name": "Veerly",
+  "description": "PWA version of Veerly Next.js app",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#0f172a",
-  "description": "PWA version of Veerly Next.js app",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
