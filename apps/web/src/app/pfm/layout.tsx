@@ -16,17 +16,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* DrawerProvider, SideDrawerNav, BreadcrumbsNav MUST be client components */}
         <DrawerProvider>
-          <div className="flex min-h-screen">
+          <div className="flex min-h-screen overflow-hidden">
+            {/* Sidebar (client component) */}
             <SideDrawerNav />
 
-            <div className="flex-1 flex flex-col">
+            <div className="max-h-screen min-h-screen flex-1 flex flex-col overflow-hidden">
+              {/* Breadcrumb (client component) */}
               <BreadcrumbsNav />
-              <main className="p-6 flex-1 bg-base-100">{children}</main>
+
+              {/* ONLY main scrolls */}
+              <main className="flex-1 overflow-y-auto p-6 bg-base-100">
+                {children}
+              </main>
             </div>
           </div>
-
-          <footer className="p-4 text-center">My Global Footer</footer>
         </DrawerProvider>
       </body>
     </html>
